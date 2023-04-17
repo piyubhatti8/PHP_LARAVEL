@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <title>
+            PHP Assignment Question1
+        </title>
+        <style>
+            
+            .table1{
+               background-color: yellowgreen;
+               width: 50%;
+               height: auto;
+               border-radius: 5px;
+               
+            }
+            .tr1{
+                background-color: white;
+                opacity: 0.5;
+            }
+            p.round{
+            border: 2px solid red;
+                border-radius: 1 2px;
+                padding: 5px;
+            }
+            td{
+                padding: 3px;
+            }
+            input{
+                border-radius: 5px;
+            
+            }
+            .card_img{
+                width: 30px;
+                height: 20px;
+            }
+            .buyit{
+                background-color: darkgreen;
+               
+        </style>
+    </head>
+    <body>
+        <center>
+     
+                <table class="table1">
+
+                    <tr>
+                        <td colspan="2">
+                                Step 1: Your Details
+                        </td>
+                    </tr>
+                    
+                    <tr class="tr1">
+                    
+                        <td>
+                            
+                            Name
+                            
+                        </td>
+                        <td>
+                            <input type="text" name="name" value="First and Last Name">
+                        </td>
+
+                    </tr>
+                
+                    
+                    <tr class="tr1">
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            <input type="email" name="email" value="First and Last Name">
+                        </td>
+                    </tr>
+                    <tr class="tr1">
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            <input type="number" name="mno" value="" >
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2">
+                                Step 2: Delivery Address
+                        </td>
+                    </tr>
+                    <tr class="tr1">
+                        <td>
+                            Address
+                        </td>
+                        <td>
+                            <textarea name="Add">
+                    
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr class="tr1">
+                        <td>
+                            Post Code
+                        </td>
+                        <td>
+                            <input type="number" name="pcod">
+                        </td>
+                    </tr>
+                    <tr class="tr1">
+                        <td>
+                            County
+                        </td>
+                        <td>
+                            <select name="country">
+                                <optio>----Select----</optio>
+                                </option>
+                                <option value="India">India</option>
+                                <option value="USA">USA</option>
+                                <option value="Srilanka">Srilanka</option>
+                                <option value="Other">Other</option>
+                            </select>   
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2">
+                                Step 3: Card Details
+                        </td>
+                    </tr>
+                    <tr class="tr1">
+                        <td>
+                            Card Type
+                        </td>
+                        <td>
+                           <input type="radio" name="card_type" value="VISA"><img src="Images/visa_card1.png" class="card_img"> VISA
+                           <input type="radio" name="card_type" value="AMEX"><img src="Images/AMEX_Card.jpg" class="card_img"> AMEX
+                           <input type="radio" name="card_type" value="MasterCard"><img src="Images/MasterCard.png" class="card_img"> Master Card
+                        </td>
+                    </tr>
+                    <tr class="tr1">
+                        <td>
+                           Card Number
+                        </td>
+                        <td>
+                            <input type="number" name="card_no">
+                        </td>
+                    </tr>
+                    <tr class="tr1">
+                        <td>
+                            Security Code
+                        </td>
+                        <td>
+                           <input type="text" name="security_code">
+                        </td>
+                    </tr>
+                    <tr class="tr1">
+                        <td>
+                            Name On Card
+                        </td>
+                        <td>
+                           <input type="text" name="name_oncard">
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="2">
+                            <input type="submit" name="buyit" value="Buy IT!" class="buyit">
+                        </td>
+                    </tr>
+                </table>
+           
+    </center>
+    </body>
+<html>
+    
