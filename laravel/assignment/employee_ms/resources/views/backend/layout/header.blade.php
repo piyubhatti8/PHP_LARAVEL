@@ -35,6 +35,7 @@
       <![endif]-->
    </head>
    <body class="dashboard dashboard_1">
+      @include('sweetalert::alert');
       <div class="full_container">
          <div class="inner_container">
             <!-- Sidebar  -->
@@ -128,7 +129,7 @@
                                     <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="backend/assets/images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Priyanka Solanki</span></a>
                                     <div class="dropdown-menu">
                                        <a class="dropdown-item" href="profile">My Profile</a>
-                                       <a class="dropdown-item" href="logout"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                       <a class="dropdown-item" href="{{url('/logout')}}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
                                     </div>
                                  </li>
                               </ul>

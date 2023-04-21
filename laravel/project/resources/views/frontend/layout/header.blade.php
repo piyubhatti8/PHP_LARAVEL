@@ -1,194 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>Footwear - Free Bootstrap 4 Template by Colorlib</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-    <meta charset="utf-8">
-    <title>EShopper - Bootstrap Shop Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{{url('frontend/assets/css/animate.css')}}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{{url('frontend/assets/css/icomoon.css')}}">
+	<!-- Ion Icon Fonts-->
+	<link rel="stylesheet" href="{{url('frontend/assets/css/ionicons.min.css')}}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{{url('frontend/assets/css/bootstrap.min.css')}}">
 
-    <!-- Favicon -->
-    <link href="{{url('frontend/assets/img/favicon.ico')}}" rel="icon">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{{url('frontend/assets/css/magnific-popup.css')}}">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="{{url('frontend/assets/css/flexslider.css')}}">
 
-    <!-- Font Awesome -->
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{{url('frontend/assets/css/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{url('frontend/assets/css/owl.theme.default.min.css')}}">
+	
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="{{url('frontend/assets/css/bootstrap-datepicker.css')}}">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="{{url('frontend/assets/fonts/flaticon/font/flaticon.css')}}">
 
-    <!-- Libraries Stylesheet -->
-    <link href="{{url('frontend/assets/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{{url('frontend/assets/css/style.css')}}">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{url('frontend/assets/css/style.css')}}" rel="stylesheet">
-</head>
+	</head>	
 
-<body>
-    <!-- Topbar Start -->
-    <div class="container-fluid">
-        <div class="row bg-secondary py-2 px-xl-5">
-            <div class="col-lg-6 d-none d-lg-block">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-dark" href="">FAQs</a>
-                    <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Help</a>
-                    <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Support</a>
-                </div>
-            </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="text-dark pl-2" href="">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="row align-items-center py-3 px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
-                <a href="" class="text-decoration-none">
-                    <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Shoes</span>Shopper</h1>
-                </a>
-            </div>
-            <div class="col-lg-6 col-6 text-left">
-                <form action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-3 col-6 text-right">
-                <a href="" class="btn border">
-                    <i class="fas fa-heart text-primary"></i>
-                    <span class="badge">0</span>
-                </a>
-                <a href="" class="btn border">
-                    <i class="fas fa-shopping-cart text-primary"></i>
-                    <span class="badge">0</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
+	<body>
+@include('sweetalert::alert')
+	<div class="colorlib-loader"></div>
 
-
-    <!-- Navbar Start -->
-    <div class="container-fluid">	
-        <div class="row border-top px-xl-5">
-		
-            <div class="col-lg-3 d-none d-lg-block">
-                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                    <h6 class="m-0">Shoes</h6>
-                    <i class="fa fa-angle-down text-dark"></i>
-                </a>
-                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
-                    <div class="navbar-nav w-100 overflow-hidden" style="height: 400px">
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Women<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Casual Shoes</a>
-                                <a href="" class="dropdown-item">Ballerina</a>
-                                <a href="" class="dropdown-item">Chappals</a>
-                                 <a href="" class="dropdown-item">Flip Flops</a>
-                                  <a href="" class="dropdown-item">Sandals</a>
-                                   <a href="" class="dropdown-item">Sports</a>
-                            </div>
-                        </div>
-						<div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Men<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Casual Shoes</a>
-                                <a href="" class="dropdown-item">Chappals</a>
-                                <a href="" class="dropdown-item">Formals</a>
-                                 <a href="" class="dropdown-item">Loafer</a>
-                                  <a href="" class="dropdown-item">Sandals</a>
-                                   <a href="" class="dropdown-item">Sports</a>
-                            </div>
-                        </div>
-						<div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Kids<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Boys</a>
-                                <a href="" class="dropdown-item">Girls</a>
-                                <a href="" class="dropdown-item">Infants</a>
-                                 <a href="" class="dropdown-item">Unisex</a>
-                                  <a href="" class="dropdown-item">Sandals</a>
-                                   <a href="" class="dropdown-item">Sports</a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </nav>
-            </div>
-			
-            <div class="col-lg-9">
-                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-                    <a href="" class="text-decoration-none d-block d-lg-none">
-                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
-                    </a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto py-0">
-                            <a href="index" class="nav-item nav-link active">Home</a>
-                                                        <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Women</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="#" class="dropdown-item">Casual Shoes</a>
-                                    <a href="#" class="dropdown-item">Ballerina</a>
-									<a href="#" class="dropdown-item">Chappals</a>
-                                    <a href="#" class="dropdown-item">Flip Flops</a>
-									<a href="#" class="dropdown-item">Sandals</a>
-                                    <a href="#" class="dropdown-item">Sports</a>
-                                </div>
-                            </div>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Men</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="#" class="dropdown-item">Casual Shoes</a>
-                                    <a href="#" class="dropdown-item">Formal</a>
-									<a href="#" class="dropdown-item">Chappals</a>
-                                    <a href="#" class="dropdown-item">Loafer</a>
-									<a href="#" class="dropdown-item">Sandals</a>
-                                    <a href="#" class="dropdown-item">Sports</a>
-                                </div>
-                            </div>
-							<div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Kids</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="#" class="dropdown-item">Boys</a>
-                                    <a href="#" class="dropdown-item">Girls</a>
-									<a href="#" class="dropdown-item">Infants</a>
-                                    <a href="#" class="dropdown-item">Unisex</a>
-                                </div>
-                            </div>
-                            <a href="contact" class="nav-item nav-link">Contact</a>
-                        </div>
-                        <div class="navbar-nav ml-auto py-0">
-                            <a href="" class="nav-item nav-link">Login</a>
-                            <a href="" class="nav-item nav-link">Register</a>
-                        </div>
-                    </div>
-                </nav>
-   
-    <!-- Navbar End -->
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-7 col-md-9">
+							<div id="colorlib-logo"><a href="index">Footwear</a></div>
+						</div>
+						<div class="col-sm-5 col-md-3">
+			            <form action="#" class="search-wrap">
+			               <div class="form-group">
+			                  <input type="search" class="form-control search" placeholder="Search">
+			                  <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
+			               </div>
+			            </form>
+			         </div>
+		         </div>
+					<div class="row">
+						<div class="col-sm-12 text-left menu-1">
+							<ul>
+								<li class="active"><a href="index">Home</a></li>
+								<li class="has-dropdown">
+									<a href="men">Men</a>
+									<ul class="dropdown">
+										<li><a href="product_detail">Product Detail</a></li>
+										<li><a href="cart">Shopping Cart</a></li>
+										<li><a href="checkout">Checkout</a></li>
+										<li><a href="order_complete">Order Complete</a></li>
+										<li><a href="add_to_wishlist">Wishlist</a></li>
+									</ul>
+								</li>
+								<li><a href="women">Women</a></li>
+								<li><a href="about">About</a></li>
+								<li><a href="contact">Contact</a></li>
+								
+								<li class="cart"><a href="cart"><a href="user_login">Login/Signup</a></li>
+								<li class="cart"><a href="cart"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>

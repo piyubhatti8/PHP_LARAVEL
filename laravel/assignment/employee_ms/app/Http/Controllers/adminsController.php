@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\admin;
+
+use Hash;
 use Session;
 use RealRashid\SweetAlert\Facades\Alert;
 class adminsController extends Controller
@@ -30,32 +32,43 @@ class adminsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function chk_login(Request $request)
+public function logincheck(Request $request)
     {
-      $unm=$request->unm;
-      $pass=$request->pass;
-        $admins=admin::where('unm',$unm)->first();
-        if($admins){
-
-            if($admins->pass==$pass){
-                session()->put('anm',$admins->aname);
-                session()->put('aid',$admins->id);
-                Alert::success('Congrats','Logged in successfully');
-                return redirect('/dashboard');
-            }
-            else{
-                Alert::error('Login Failed..!','Wrong Password..');
-                return redirect()->back(); 
-            }
-        }
-        else{
-            Alert::error('Login Failed..!','Wrong Username..');
-            return redirect()->back(); 
-        }
-
-
+		$unm=$request->unm;
+		$pass=$request->pass;
+		
+		$data=admin::where('unm','=',$unm)->first();
+		if($data)
+		{
+			if(Hash::check($pass,$data->pass))
+			{
+				session()->put('unm',$data->unm);
+				session()->put('admin_id',$data->id);
+				
+				Alert::success('Congrats', 'You\'ve Successfully Logined');
+				return redirect('/dashboard');
+			}
+			else
+			{
+				Alert::error('Login Failed', 'Wrong Password');
+				return redirect()->back();
+			}
+		}
+		else
+		{
+				Alert::error('Login Failed', 'Wrong Username');
+				return redirect()->back();
+		}
     }
-
+	
+	public function adminlogout()
+    {
+		session()->pull('unm');
+		session()->pull('admin_id');
+		Alert::success('Congrats', 'You\'ve Successfully Logout');
+		return redirect('/admin_login');
+	}
+   
     /**
      * Display the specified resource.
      */

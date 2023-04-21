@@ -11,9 +11,9 @@ class adminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function admin_index()
     {
-        return view('backend.login');
+        return view('backend.admin_index');
     }
 
     /**
@@ -46,7 +46,7 @@ class adminController extends Controller
     {
         unset( $_SESSION['anm']);
         unset( $_SESSION['id']);
-        return redirect('/login');
+        return redirect('/admin_index');
     }
     /**
      * Store a newly created resource in storage.

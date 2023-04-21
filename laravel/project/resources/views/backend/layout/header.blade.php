@@ -113,8 +113,8 @@
                         </ul>
                      </li>
                      <li class="">
-                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Size</span></a>
-                        <ul class="collapse list-unstyled" id="additional_page">
+                        <a href="#size" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Size</span></a>
+                        <ul class="collapse list-unstyled" id="size">
                            <li>
                               <a href="">> <span>Add Size</span></a>
                            </li>
@@ -124,8 +124,8 @@
                         </ul>
                      </li>
                      <li class="">
-                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Colors</span></a>
-                        <ul class="collapse list-unstyled" id="additional_page">
+                        <a href="#color" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Colors</span></a>
+                        <ul class="collapse list-unstyled" id="color">
                            <li>
                               <a href="">> <span>Add Color</span></a>
                            </li>
@@ -135,24 +135,24 @@
                         </ul>
                      </li>
                      <li class="">
-                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Users</span></a>
-                        <ul class="collapse list-unstyled" id="additional_page">
+                        <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Users</span></a>
+                        <ul class="collapse list-unstyled" id="users">
                            <li>
                               <a href="">> <span>Manage Users</span></a>
                            </li>
                         </ul>
                      </li>
                      <li class="">
-                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>feedback</span></a>
-                        <ul class="collapse list-unstyled" id="additional_page">
+                        <a href="#feedback" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>feedback</span></a>
+                        <ul class="collapse list-unstyled" id="feedback">
                            <li>
                               <a href="">> <span>Manage feedback</span></a>
                            </li>
                         </ul>
                      </li>
                      <li class="">
-                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Orders</span></a>
-                        <ul class="collapse list-unstyled" id="additional_page">
+                        <a href="#orders" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Orders</span></a>
+                        <ul class="collapse list-unstyled" id="orders">
                            <li>
                               <a href="">> <span>Manage Orders</span></a>
                            </li>
