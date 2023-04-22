@@ -25,7 +25,7 @@ Route::get('/', function () {
 //-------------------------------------------------------Admin Routes--------------------------------------------------------------------------------
  Route::group(['middleware'=>['beforelogin']],function(){
     Route::get('/admin_login',[adminsController::class,'login']);
-Route::post('/admin_login',[adminsController::class,'logincheck']);
+	Route::post('/admin_login',[adminsController::class,'logincheck']);
    
 });
 Route::group(['middleware'=>['afterlogin']],function(){
