@@ -7,7 +7,8 @@ use App\Models\user;
 use App\Models\countrie;
 use RealRashid\SweetAlert\Facades\Alert;
 use Hash;
-
+use Mail;
+use App\Mail\welcomemail;
 class userController extends Controller
 {
     /**
@@ -56,9 +57,9 @@ class userController extends Controller
     public function register(Request $request)
     {
        $reg_user=new user;
-       $reg_user->name=$request->name;
-       $reg_user->unm=$request->unm;
-       $reg_user->pass=Hash::make($request->pass);
+      $name=$reg_user->name=$request->name;
+      $email=$reg_user->unm=$request->unm;
+       $pass=$reg_user->pass=Hash::make($request->pass);
        $reg_user->gen=$request->gen;
        $reg_user->lang=implode(",",$request->lang);
        $reg_user->mob=$request->mob;
@@ -75,6 +76,9 @@ class userController extends Controller
        $reg_user->img=$filename;
 
        $reg_user->save();
+       $emaildata=array("email"=>$email,"name"=>$name,"pass"=>$pass);
+       Mail::to('solankisagar1992@gmail.com')->send(new welcomemail($emaildata));
+
        Alert::Success('Congrats','You\'ve Successfully Registered');
        return redirect()->back();
 

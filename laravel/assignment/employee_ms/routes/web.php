@@ -31,7 +31,7 @@ Route::get('/', function () {
 Route::group(['middleware'=>['afterlogin']],function(){
    
     Route::get('/logout',[adminsController::class,'adminlogout']);   
-
+    Route::get('/manage_users',[adminsController::class,'manage_users']);   
     Route::get('/contact', function () {
         return view('backend.contact');
     });
@@ -41,7 +41,9 @@ Route::group(['middleware'=>['afterlogin']],function(){
     Route::get('/profile', function () {
         return view('backend.profile');
     });
-    
+    Route::get('/tables', function () {
+        return view('backend.tables');
+    });
 
 });
 

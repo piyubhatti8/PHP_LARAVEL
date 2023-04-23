@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\user;
 use App\Models\admin;
-
 use Hash;
 use Session;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -21,9 +21,11 @@ class adminsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function manage_users()
     {
-        //
+        $users=new user;
+        $users=user::all()->paginate(3);
+        return view('backend.manage_users',["users"=>$users]);
     }
     public function login()
     {
