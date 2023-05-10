@@ -36,6 +36,7 @@
       <![endif]-->
    </head>
    <body class="inner_page login">
+      @include('sweetalert::alert')
       <div class="full_container">
          <div class="container">
             <div class="center verticle_center full_height">
@@ -46,7 +47,7 @@
                      </div>
                   </div>
                   <div class="login_form">
-                     <form action="{{url('/adminlogin')}}" method="POST">
+                     <form action="{{url('/admin_index')}}" method="post">
                         @csrf
                         <fieldset>
                            <div class="field">
@@ -59,7 +60,7 @@
                            </div>
                           
                            <div class="field margin_0">
-                              <label class="label_field hidden">hidden label</label>
+          
                               <input type="submit" name="submit" value="login" class="main_bt">
                            </div>
                         </fieldset>

@@ -18,17 +18,16 @@ use App\Http\Controllers\categoriesController;
 */
 //------------------------------------------------------------Frontend Routes-----------------------------------------------------------------------
 
-Route::get('/header/{data}',[categoriesController::class,'header']);
+Route::get('/header/{data}',[imagesController::class,'header']);
 
 
-Route::get('/index',[categoriesController::class,'index']);
+Route::get('/index',[imagesController::class,'index']);
 
 Route::post('/gallery',[imagesController::class,'gallery']);
 
-Route::get('/cat_wise_images/{data}',[categoriesController::class,'category']);
-Route::get('/cat_wise_images',[imagesController::class,'cat_wise_images']);
 
-Route::get('/cat_wise_images/{data}',[imagesController::class,'cat_wise_images']);
+Route::get('/cat_wise_images/{id}',[imagesController::class,'category']);
+
 
 
 
@@ -64,14 +63,12 @@ Route::get('/header', function () {
 //------------------------------------------------------------Backend Routes-----------------------------------------------------------------------
 
 
-Route::get('/admin_register', function () {
-    return view('backend.admin_register');
-});
+
 
 Route::get('/form', function () {
     return view('backend.form');
 });
-
+Route::post('/admin_register',[adminController::class,'store']);
 Route::get('/add_images',[imagesController::class,'add_images']);
 
 Route::post('/add_images',[imagesController::class,'insert_images']);

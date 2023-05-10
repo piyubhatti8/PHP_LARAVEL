@@ -58,26 +58,26 @@
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li class="active"><a href="index">Home</a></li>
+                <li class="active"><a href="{{url('index')}}">Home</a></li>
                 <li class="has-children">
-                  <a href="single">Gallery</a>
+                  <a href="">Gallery</a>
                   <ul class="dropdown">
                     @if($data)
                     @foreach($data as $d)
-                    <li><a href="">{{$d->category}}</a></li>
+                      <li><a href="{{url('cat_wise_images/'.$d->id)}}">{{$d->category}}</a></li>
                     @endforeach
                    @endif
                   </ul>
                 </li>
-                <li><a href="services">Services</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="{{url('services')}}">Services</a></li>
+                <li><a href="{{url('about')}}">About</a></li>
+                <li><a href="{{url('contact')}}">Contact</a></li>
                 @if(session()->has('id'))
                 <li><a href="">{{session('name')}}</a></li>
-                <li><a href="user_logout">Logout</a></li>
+                <li><a href="{{url('user_logout')}}">Logout</a></li>
                 
                 @else
-                <li><a href="user_login">Login/Register</a></li>
+                <li><a href="{{url('user_login')}}">Login/Register</a></li>
                 @endif
            
 

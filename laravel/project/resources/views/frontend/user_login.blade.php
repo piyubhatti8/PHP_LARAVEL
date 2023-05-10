@@ -70,7 +70,7 @@
 								<center>
 									<div class="col-md-12">
 										<div class="form-group">
-											<input type="submit" name="submit" value="Register" class="btn btn-primary">
+											<input type="submit" name="submit" value="Login" class="btn btn-primary">
 										</div>
 									</div>
 								</center>

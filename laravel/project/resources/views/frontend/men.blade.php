@@ -48,39 +48,29 @@
 				</div>
 			</div>
 		</div>
+@if($type_data)
 
-		<div class="colorlib-featured">
+<div class="colorlib-featured">
 			<div class="container">
+			
 				<div class="row">
+				@foreach($type_data as $type)
 					<div class="col-sm-4 text-center">
 						<div class="featured">
 							<div class="featured-img featured-img-2" style="background-image: url(frontend/assets/images/men.jpg);">
-								<h2>Casuals</h2>
-								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
+								<h2>{{$type->type}}</h2>
+								<p><a href="{{url('view_type_wise_men/'.$type->id)}}" class="btn btn-primary btn-lg">Shop now</a></p>
 							</div>
 						</div>
-					</div>
-					<div class="col-sm-4 text-center">
-						<div class="featured">
-							<div class="featured-img featured-img-2" style="background-image: url(frontend/assets/images/women.jpg);">
-								<h2>Dress</h2>
-								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 text-center">
-						<div class="featured">
-							<div class="featured-img featured-img-2" style="background-image: url(frontend/assets/images/item-11.jpg);">
-								<h2>Sports</h2>
-								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
-							</div>
-						</div>
-					</div>
+					</div>	
+					@endforeach				
 				</div>
+			
 			</div>
 		</div>
 
-		<div class="colorlib-product">
+@endif
+	<!--	<div class="colorlib-product">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
@@ -284,5 +274,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-@endsection
+		</div> -->
+
+		@endsection

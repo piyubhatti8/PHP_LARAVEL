@@ -7,6 +7,7 @@ use App\Models\user;
 use App\Models\admin;
 use Hash;
 use Session;
+use Illuminate\Pagination\Paginator;
 use RealRashid\SweetAlert\Facades\Alert;
 class adminsController extends Controller
 {
@@ -23,8 +24,8 @@ class adminsController extends Controller
      */
     public function manage_users()
     {
-        $users=new user;
-        $users=user::all()->paginate(3);
+       
+        $users=user::paginate(3);
         return view('backend.manage_users',["users"=>$users]);
     }
     public function login()

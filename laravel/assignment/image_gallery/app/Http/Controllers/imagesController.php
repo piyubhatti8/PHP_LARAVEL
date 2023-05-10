@@ -11,9 +11,20 @@ use \RealRashid\SweetAlert\Facades\Alert;
  */
 class imagesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function index()
+    {
+        $data=categorie::all();
+        return view('frontend.index',['data'=>$data]); // Passed category name to index route.
+
+    }
+  
+    //--------------------------------------------------------------Header route to pass data--------------------------------------------
+    public function header()
+    {
+        $data=categorie::all();
+        return view('frontend.layout.header',['data'=>$data]);
+
+    }
 
 //--------------------------------------------------------------Index route---------------------------------------------------------------
 
@@ -50,16 +61,13 @@ class imagesController extends Controller
         
     }
     //--------------------------------------------------------------Gallery view in index--------------------------------------------
-
- 
-    public function cat_wise_images()
+    public function category(string $id)
     {
-        //$data=categorie::all();
-        $data=image::all();
-     //  $data=image::where('cat_id',$id);
+        $data=image::where('cat_id','=',$id);
         return view('frontend.cat_wise_images',['data'=>$data]);
-        
+
     }
+ 
 
      
     public function create()

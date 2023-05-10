@@ -186,19 +186,19 @@ label {
 
                 <div class="col-lg-12 login-form">
                     <div class="col-lg-12 login-form">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{url('/register_admin')}}" method="POST">
 						@csrf
                             <div class="form-group">
                                 <label class="form-control-label">Name:</label>
-                                <input type="text" name="name" class="form-control" required>
+                                <input type="text" name="aname" placeholder="Name" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Email:</label>
-                                <input type="email" name="unm" class="form-control" required>
+                                <input type="email" name="anm" placeholder="E-mail" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Password</label>
-                                <input type="password" name="pass" class="form-control" required>
+                                <input type="password" name="apass" placeholder="Password" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Mobile No.:</label>
@@ -215,7 +215,7 @@ label {
                             </div>
 							<div class="col-12">                              
 								<div class="form-group">
-									<a href="admin_login"><label style="font-size:15px; color:white;">Already Registered!!..Login From Here</label></a>	                        
+									<a href=""><label style="font-size:15px; color:white;">Already Registered!!..Login From Here</label></a>	                        
 								</div>
                             </div>	
                         </form>

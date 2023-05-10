@@ -5,6 +5,9 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -64,9 +67,10 @@
 					<div class="row">
 						<div class="col-sm-12 text-left menu-1">
 							<ul>
-								<li class="active"><a href="index">Home</a></li>
+								<li class=""><a href="index">Home</a></li>
+	
 								<li class="has-dropdown">
-									<a href="men">Men</a>
+									<a  href="{{url('men')}}">Men</a>
 									<ul class="dropdown">
 										<li><a href="product_detail">Product Detail</a></li>
 										<li><a href="cart">Shopping Cart</a></li>
@@ -75,12 +79,17 @@
 										<li><a href="add_to_wishlist">Wishlist</a></li>
 									</ul>
 								</li>
-								<li><a href="women">Women</a></li>
+								<li><a href="{{url('women')}}">Women</a></li>
 								<li><a href="about">About</a></li>
 								<li><a href="contact">Contact</a></li>
+								@if(session()->has('uid'))
+									<li class="cart"><a href="{{('user_logout')}}">Logout</a></li>
+									<li class="cart"><a href="{{('cart')}}"><i class="icon-shopping-cart"></i> Cart [0]</a></li>									
+									<li class="cart"><a href="{{url('user_profile')}}">Profile</a></li>
+								@else									
+									<li class="cart"><a href="{{url('user_login')}}">Login/Signup</a></li>
+								@endif
 								
-								<li class="cart"><a href="cart"><a href="user_login">Login/Signup</a></li>
-								<li class="cart"><a href="cart"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
 							</ul>
 						</div>
 					</div>

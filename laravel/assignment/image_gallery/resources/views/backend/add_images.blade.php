@@ -6,8 +6,8 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Forms Page</h2>   
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                     <h2>Brands Page</h2>   
+                        <h5>Brands Page</h5>
                        
                     </div>
                 </div>
@@ -24,33 +24,13 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <h3>Add Images</h3>
-                                    <form action="" method="post" enctype="multipart/form-data">
+                                   <form action="{{url('/add_brands')}}" method="post" enctype="multipart/form-data">	
                                         @csrf
                                         <div class="form-group">
-                                            <label>Photo Name:</label>
-                                            <input type="text" name="name" class="form-control" />
+                                            <label>Brand Name</label>
+                                            <input type="text" name="brand" class="form-control" />
                                         </div>
-                                        <div class="form-group">
-                                            <label>Select Category</label>
-                                            <select class="form-control"  name="cat_id" >
-                                                <option>----select----</option>
-                                                @if($data)
-                                                @foreach($data as $d)
-                                                <option value="{{$d->id}}">{{$d->category}}</option>
-                                                @endforeach
-                                                @endif
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Select Photo</label>
-                                            <input type="file" name="file[]" multiple/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Photo Description</label>
-                                            <input type="text" name="des" class="form-control" />
-                                        </div>
-
-                                        
+ 
                                         <input type="submit" name="submit" value="submit" class="btn btn-danger">
 
                                     </form>

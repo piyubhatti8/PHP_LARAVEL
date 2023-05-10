@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
+      <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
       <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,8 +39,13 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
+
+
+
    </head>
    <body class="dashboard dashboard_1">
+@include('sweetalert::alert')
+
       <div class="full_container">
          <div class="inner_container">
             <!-- Sidebar  -->
@@ -50,7 +61,7 @@
                      <div class="user_profle_side">
                         <div class="user_img"><img class="img-responsive" src="backend/assets/images/layout_img/user_img.jpg" alt="#" /></div>
                         <div class="user_info">
-                           <h6>Priyanka Solanki</h6>
+                           <h6>{{session('aname')}}</h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>
@@ -65,72 +76,71 @@
 
                   
                      <li class="">
-                        <a href="#product" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Products</span></a>
-                        <ul class="collapse list-unstyled" id="product">
+                        <a href="#products" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Products</span></a>
+                        <ul class="collapse list-unstyled" id="products">
                            <li>
-                              <a href="">> <span>Add Products</span></a>
+                              <a href="{{url('/add_products')}}">> <span>Add Products</span></a>
                            </li>
                            <li>
-                              <a href="project">> <span>Manage Products</span></a>
+                              <a href="products">> <span>Manage Products</span></a>
                            </li>
                            
                         </ul>
                      </li>
                      <li class="active">
-                        <a href="#category" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Categories</span></a>
-                        <ul class="collapse list-unstyled" id="category">
+                        <a href="#categories" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Categories</span></a>
+                        <ul class="collapse list-unstyled" id="categories">
                            <li>
-                              <a href="">> <span>Add Categories</span></a>
+                              <a href="add_categories">> <span>Add Categories</span></a>
                            </li>
-                           <li>
-                              <a href="project">> <span>Manage Categories</span></a>
-                           </li>
-                           
-                        </ul>
-                     </li>
-                     <li class="">
-                        <a href="#type" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Types</span></a>
-                        <ul class="collapse list-unstyled" id="type">
-                           <li>
-                              <a href="">> <span>Add Types</span></a>
-                           </li>
-                           <li>
-                              <a href="project">> <span>Manage Types</span></a>
+                          <li>
+                              <a href="">> <span>View Categories</span></a>
                            </li>
                            
                         </ul>
                      </li>
                      <li class="">
-                        <a href="#subtype" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Sub Types</span></a>
-                        <ul class="collapse list-unstyled" id="subtype">
+                        <a href="#types" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Types</span></a>
+                        <ul class="collapse list-unstyled" id="types">
                            <li>
-                              <a href="">> <span>Add Sub Types</span></a>
+                              <a href="{{url('/add_types')}}">> <span>Add Types</span></a>
                            </li>
                            <li>
-                              <a href="project">> <span>Manage Sub Types</span></a>
+                              <a href="types">> <span>Manage Types</span></a>
                            </li>
                            
                         </ul>
                      </li>
                      <li class="">
-                        <a href="#size" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Size</span></a>
-                        <ul class="collapse list-unstyled" id="size">
+                        <a href="#brands" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Brands</span></a>
+                        <ul class="collapse list-unstyled" id="brands">
                            <li>
-                              <a href="">> <span>Add Size</span></a>
+                              <a href="{{url('/add_brands')}}">> <span>Add Brands</span></a>
                            </li>
                            <li>
-                              <a href="project">> <span>Manage Size</span></a>
+                              <a href="brands">> <span>Manage Brands</span></a>
                            </li>  
                         </ul>
                      </li>
                      <li class="">
-                        <a href="#color" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Colors</span></a>
-                        <ul class="collapse list-unstyled" id="color">
+                        <a href="#sizes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Size</span></a>
+                        <ul class="collapse list-unstyled" id="sizes">
                            <li>
-                              <a href="">> <span>Add Color</span></a>
+                              <a href="{{url('/add_sizes')}}">> <span>Add Sizes</span></a>
                            </li>
                            <li>
-                              <a href="project">> <span>Manage Color</span></a>
+                              <a href="sizes">> <span>Manage Sizes</span></a>
+                           </li>  
+                        </ul>
+                     </li>
+                     <li class="">
+                        <a href="#colors" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Colors</span></a>
+                        <ul class="collapse list-unstyled" id="colors">
+                           <li>
+                              <a href="{{url('/add_colors')}}">> <span>Add Colors</span></a>
+                           </li>
+                           <li>
+                              <a href="colors">> <span>Manage Colors</span></a>
                            </li>  
                         </ul>
                      </li>
@@ -138,15 +148,15 @@
                         <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Users</span></a>
                         <ul class="collapse list-unstyled" id="users">
                            <li>
-                              <a href="">> <span>Manage Users</span></a>
+                              <a href="users">> <span>Manage Users</span></a>
                            </li>
                         </ul>
                      </li>
                      <li class="">
-                        <a href="#feedback" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>feedback</span></a>
-                        <ul class="collapse list-unstyled" id="feedback">
+                        <a href="#feedbacks" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>feedbacks</span></a>
+                        <ul class="collapse list-unstyled" id="feedbacks">
                            <li>
-                              <a href="">> <span>Manage feedback</span></a>
+                              <a href="feedbacks">> <span>Manage Feedbacks</span></a>
                            </li>
                         </ul>
                      </li>
@@ -154,7 +164,7 @@
                         <a href="#orders" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Orders</span></a>
                         <ul class="collapse list-unstyled" id="orders">
                            <li>
-                              <a href="">> <span>Manage Orders</span></a>
+                              <a href="orders">> <span>Manage Orders</span></a>
                            </li>
                         </ul>
                      </li>
@@ -181,13 +191,15 @@
                               </ul>
                               <ul class="user_profile_dd">
                                  <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="backend/assets/images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Priyanka Solanki</span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="backend/assets/images/layout_img/user_img.jpg" alt="#" /><span class="name_user">{{session('aname')}}</span></a>
                                     <div class="dropdown-menu">
                                        <a class="dropdown-item" href="profile">My Profile</a>
                                        <a class="dropdown-item" href="settings">Settings</a>
                                        <a class="dropdown-item" href="help">Help</a>
 
                                        <a class="dropdown-item" href="logout"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+
+                                    
                                     </div>
                                  </li>
                               </ul>
@@ -197,3 +209,35 @@
                   </nav>
                </div>
                <!-- end topbar -->
+
+  <!-- jQuery -->
+      <script src="{{url('backend/assets/js/jquery.min.js')}}"></script>
+      <script src="{{url('backend/assets/js/popper.min.js')}}"></script>
+      <script src="{{url('backend/assets/js/bootstrap.min.js')}}"></script>
+      <!-- wow animation -->
+      <script src="{{url('backend/assets/js/animate.js')}}"></script>
+      <!-- select country -->
+      <script src="{{url('backend/assets/js/bootstrap-select.js')}}"></script>
+      <!-- owl carousel -->
+      <script src="{{url('backend/assets/js/owl.carousel.js')}}"></script> 
+      <!-- chart js -->
+      <script src="{{url('backend/assets/js/Chart.min.js')}}"></script>
+      <script src="{{url('backend/assets/js/Chart.bundle.min.js')}}"></script>
+      <script src="{{url('backend/assets/js/utils.js')}}"></script>
+      <script src="{{url('backend/assets/js/analyser.js')}}"></script>
+      <!-- nice scrollbar -->
+      <script src="{{url('backend/assets/js/perfect-scrollbar.min.js')}}"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="{{url('backend/assets/js/chart_custom_style1.js')}}"></script>
+      <script src="{{url('backend/assets/js/custom.js')}}"></script>
+
+
+
+   
+
+
+   </body>
+</html> 
