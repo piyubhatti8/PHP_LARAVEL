@@ -45,6 +45,7 @@ label {
                               
                                        <th>ID</th>
                                        <th>Type</th>
+                                       <th>Category</th>
                                        <th>Created Date</th>
                                        <th>Updated Date</th>
                                        <th>Edit</th>
@@ -58,9 +59,11 @@ label {
                                     <tr>
                                        <td>{{$types->id}}</td>
                                        <td>{{$types->type}}</td>
+
+                                       <td>{{$types->category}}</td>
                                        <td>{{$types->created_at}}</td>
                                        <td>{{$types->updated_at}}</td>
-                                       <td><a href="#"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/delete-512.png')}}"></a></td>
+                                       <td><a href="{{url('/edit_type/'.$types->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/delete-512.png')}}"></a></td>
                                        <td><a href="#"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/clipart1212466.png')}}"></a></td>
                                     </tr>
                              

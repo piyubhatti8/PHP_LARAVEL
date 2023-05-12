@@ -43,6 +43,8 @@ Route::get('/signup_user',[userController::class,'fetch_cid']);
 Route::post('/signup_user',[userController::class,'register']);
 
 Route::get('/user_profile',[userController::class,'user_profile']);
+Route::get('/edit_profile/{id}',[userController::class,'edit']);
+Route::post('/update_userprofile/{id}',[userController::class,'update_userprofile']);
 
 Route::get('/user_login',[userController::class,'user_login']);
 Route::post('/user_login',[userController::class,'chk_user']);

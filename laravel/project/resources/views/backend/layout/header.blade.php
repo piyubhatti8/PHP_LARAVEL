@@ -86,19 +86,7 @@
                            </li>
                            
                         </ul>
-                     </li>
-                     <li class="active">
-                        <a href="#categories" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Categories</span></a>
-                        <ul class="collapse list-unstyled" id="categories">
-                           <li>
-                              <a href="add_categories">> <span>Add Categories</span></a>
-                           </li>
-                          <li>
-                              <a href="">> <span>View Categories</span></a>
-                           </li>
-                           
-                        </ul>
-                     </li>
+                     </li>                    
                      <li class="">
                         <a href="#types" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Types</span></a>
                         <ul class="collapse list-unstyled" id="types">

@@ -80,11 +80,11 @@
 									</ul>
 								</li>
 								<li><a href="{{url('women')}}">Women</a></li>
-								<li><a href="about">About</a></li>
-								<li><a href="contact">Contact</a></li>
+								<li><a href="{{url('about')}}">About</a></li>
+								<li><a href="{{url('contact')}}">Contact</a></li>
 								@if(session()->has('uid'))
-									<li class="cart"><a href="{{('user_logout')}}">Logout</a></li>
-									<li class="cart"><a href="{{('cart')}}"><i class="icon-shopping-cart"></i> Cart [0]</a></li>									
+									<li class="cart"><a href="{{url('user_logout')}}">Logout</a></li>
+									<li class="cart"><a href="{{url('cart')}}"><i class="icon-shopping-cart"></i> Cart [0]</a></li>									
 									<li class="cart"><a href="{{url('user_profile')}}">Profile</a></li>
 								@else									
 									<li class="cart"><a href="{{url('user_login')}}">Login/Signup</a></li>

@@ -34,18 +34,7 @@
                                                 <option selected disabled value="">Choose...</option>
                                                     @if($type_data)
                                                         @foreach($type_data as $type)
-                                                            <option value="{{$type->id}}">{{$type->type}}</option>
-                                                        @endforeach
-                                                    @endif
-                                                </select>
-                                             </div>
-                                             <div class="form-group">
-                                                <label style="color:black; font-size:16px; font-weight: bold;">Categorie</label>
-                                                <select class="form-control" name="cate_id">
-                                                <option selected disabled value="">Choose...</option>
-                                                    @if($cate_data)
-                                                        @foreach($cate_data as $cate)
-                                                            <option value="{{$cate->id}}">{{$cate->category}}</option>
+                                                            <option value="{{$type->id}}">{{$type->category}} {{$type->type}}</option>
                                                         @endforeach
                                                     @endif
                                                 </select>
@@ -108,8 +97,7 @@
                                              </div>
                                              <div class="form-group">
                                                 <label style="color:black; font-size:16px; font-weight: bold;">Product Description</label>
-                                                <textarea  name="des" class="form-control" rows="5" placeholder="Type Description...">
-                                                </textarea>
+                                                <textarea  name="des" class="form-control" rows="5"></textarea>
                                              </div>
                                             
                                           <div class="col-12">

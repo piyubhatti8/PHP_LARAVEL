@@ -28,7 +28,17 @@
                                                 <label style="color:black; font-size:16px; font-weight: bold;">Type</label>
                                                 <input type="text" name="type" class="form-control"/>
                                              </div>
-                                            
+                                             <div class="form-group">
+                                                <label style="color:black; font-size:16px; font-weight: bold;">Category</label>
+                                                <select class="form-control" name="cate_id">
+                                                <option selected disabled value="">Choose...</option>
+                                                    @if($data)
+                                                        @foreach($data as $c)
+                                                            <option value="{{$c->id}}">{{$c->category}}</option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                             </div>
                                                          
                                           <div class="col-12">
                                              <input type="submit" class="btn btn-primary" name="submit" value="Add">

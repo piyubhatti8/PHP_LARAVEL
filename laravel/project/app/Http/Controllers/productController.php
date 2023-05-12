@@ -35,16 +35,14 @@ class productController extends Controller
         $size_data=size::all();
         $brand_data=brand::all();
         $color_data=color::all();
-        $type_data=type::all();
-        $cate_data=categorie::all();
-        return view('backend.add_products',["size_data"=>$size_data,"brand_data"=>$brand_data,"color_data"=>$color_data,"type_data"=>$type_data,"cate_data"=>$cate_data]);
+        $type_data=type::join('categories','types.cate_id','=','categories.id')->orderBy('categories.category','asc')->get();
+        return view('backend.add_products',["size_data"=>$size_data,"brand_data"=>$brand_data,"color_data"=>$color_data,"type_data"=>$type_data]);
     }
     public function store(Request $request)
     {
        $store_products=new product;
        $store_products->p_name=$request->p_name;
-       $store_products->type_id=$request->type_id;
-       $store_products->cate_id=$request->cate_id;
+       $store_products->type_id=$request->type_id;       
        $store_products->brand_id=$request->brand_id;
        $store_products->clr_id=$request->clr_id;
        $store_products->size_id=$request->size_id;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\categorie;
 use Illuminate\Http\Request;
 use App\Models\type;
 use App\Models\product;
@@ -12,8 +13,8 @@ class typeController extends Controller
 {
     public function add_types()
     {
-       
-        return view('backend.add_types');
+        $data=categorie::all();
+        return view('backend.add_types',["data"=>$data]);
     }
    
     /**
@@ -21,7 +22,8 @@ class typeController extends Controller
      */
     public function manage_types()
     {
-        $manage_types=type::all(); 
+        $manage_types=categorie::join('types','types.cate_id','=','categories.id')->get();
+      // $manage_types=type::join('categories','categories.id','=','types.cate_id')->get();
         return view('backend.manage_types',["manage_types"=>$manage_types]);
     }
 
@@ -43,6 +45,7 @@ class typeController extends Controller
         $store_types=new type;
 
         $store_types->type=$request->type;
+        $store_types->cate_id=$request->cate_id;
 
         $store_types->save();
 

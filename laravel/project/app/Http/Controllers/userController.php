@@ -17,16 +17,48 @@ class userController extends Controller
 
         if(session('uid')){
             $uid=session('uid');
-            $user_info=user::join('countries','users.cid','=','countries.id')->where('users.id','=',$uid)->first();
+           // $user_info=user::join('countries', 'users.cid', '=','countries.id')->first(['users.*', 'countries.country','countries.id as mycid']);
+            $user_info=user::join('countries','users.cid','=','countries.id')->where('users.id','=',$uid)->get();
             return view('frontend.user_profile',['user_info'=>$user_info]);
         }
         else{
             Alert::Error('Please login to view your profile.');
             return redirect('/user_login');
         }
-
        
     }
+    public function update_userprofile(Request $request,string $id)
+    {
+       $data=user::find($id);
+       $data->name=$request->name;
+       $data->unm=$request->unm;
+       $data->gen=$request->gen;
+       $data->lang=implode(",",$request->lang);
+       $data->mob=$request->mob;
+       $data->cid=$request->cid;
+       $data->add=$request->add;
+       
+   
+if($request->hasFile('file')){
+    $old_img=$data->file;
+
+    $file=$request->file('file');
+    $path="frontend/assets/upload/user/";
+    $filename=time().'_img.'.$request->file('file')->getClientOriginalExtension();
+    $file->move($path,$filename);
+
+    $data->file=$filename;
+
+    unlink('frontend/assets/upload/user/'.$old_img);
+}
+      
+
+       $data->save();
+       Alert::Success('Congrats','Profile Successfully Updated');
+       return redirect('/index');
+
+    }
+
     public function fetch_cid()
     {
         $country=countrie::all();
@@ -113,7 +145,9 @@ class userController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $country=countrie::all();
+		$edit_user=user::where('id','=',$id)->first();
+        return view('frontend.edit_profile',["country"=>$country,"edit_user"=>$edit_user]);
     }
 
     /**
