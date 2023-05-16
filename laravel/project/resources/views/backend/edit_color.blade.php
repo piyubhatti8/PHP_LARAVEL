@@ -15,18 +15,19 @@
                            <div class="white_shd full">
                               <div class="full graph_head">
                                  <div class="heading1 margin_0">
-                                    <h2 style="color:black; font-size:25px; font-weight: bold;">Add Colors</h2>
+                                    <h2 style="color:black; font-size:25px; font-weight: bold;">Edit Color</h2>
                                  </div>
                               </div>
+                            @if($edit_color)
                               <div class="full graph_revenue">
                                  <div class="row">
                                     <div class="col-md-12">
                                        <div class="content p-5">
-                                       <form action="{{url('/add_colors')}}" method="post" enctype="multipart/form-data">
+                                       <form action="{{url('/update_color/'.$edit_color->id)}}" method="post" enctype="multipart/form-data">
                                           @csrf
                                              <div class="form-group">
                                                 <label style="color:black; font-size:16px; font-weight: bold;">Color Name</label>
-                                                <input type="text" name="color" class="form-control"/>
+                                                <input type="text" name="color" class="form-control" value="{{$edit_color->color}}"/>
                                              </div>
                                                          
                                           <div class="col-12">
@@ -37,6 +38,7 @@
                                     </div>
                                  </div>
                               </div>
+                            @endif
                            </div>
                         </div>
                      </div>

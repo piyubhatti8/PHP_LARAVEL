@@ -15,39 +15,45 @@
                            <div class="white_shd full">
                               <div class="full graph_head">
                                  <div class="heading1 margin_0">
-                                    <h2 style="color:black; font-size:25px; font-weight: bold;">Add Types</h2>
+                                    <h2 style="color:black; font-size:25px; font-weight: bold;">Edit Type</h2>
                                  </div>
                               </div>
+                              @if($edit_data)
                               <div class="full graph_revenue">
                                  <div class="row">
                                     <div class="col-md-12">
                                        <div class="content p-5">
-                                       <form action="{{url('/add_types')}}" method="post" enctype="multipart/form-data">
+                                       <form action="{{url('/update_type/'.$edit_data->id)}}" method="post" enctype="multipart/form-data">
                                           @csrf
                                              <div class="form-group">
                                                 <label style="color:black; font-size:16px; font-weight: bold;">Type</label>
-                                                <input type="text" name="type" class="form-control"/>
+                                                <input type="text" name="type" class="form-control" value="{{$edit_data->type}}"/>
                                              </div>
                                              <div class="form-group">
                                                 <label style="color:black; font-size:16px; font-weight: bold;">Category</label>
                                                 <select class="form-control" name="cate_id">
                                                 <option selected disabled value="">Choose...</option>
-                                                    @if($data)
-                                                        @foreach($data as $c)
-                                                            <option value="{{$c->id}}">{{$c->category}}</option>
+                                                    @if($category)
+                                                        @foreach($category as $c)
+                                                        @if($c->id==$edit_data->cate_id)
+                                                            <option value="{{$c->id}}" selected>{{$c->category}}</option>
+                                                         @else
+                                                         <option value="{{$c->id}}">{{$c->category}}</option>
+                                                         @endif
                                                         @endforeach
                                                     @endif
                                                 </select>
                                              </div>
                                                          
                                           <div class="col-12">
-                                             <input type="submit" class="btn btn-primary" name="submit" value="Add">
+                                             <input type="submit" class="btn btn-primary" name="submit" value="Edit">
                                           </div>
                                        </form>
                                        </div>
                                     </div>
                                  </div>
                               </div>
+                              @endif
                            </div>
                         </div>
                      </div>
@@ -63,3 +69,4 @@
          </div>
       </div>	   
     @endsection
+    

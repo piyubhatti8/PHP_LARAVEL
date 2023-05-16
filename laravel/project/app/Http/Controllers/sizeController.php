@@ -31,32 +31,55 @@ class sizeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function manage_sizes()
     {
-        //
+        $manage_sizes=size::all();
+        return view('backend.manage_sizes',["manage_sizes"=>$manage_sizes]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit_size(string $id)
     {
-        //
+        $edit_size=size::where('id','=',$id)->first();
+        return view('backend.edit_size',["edit_size"=>$edit_size]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update_size(Request $request, string $id)
     {
-        //
+        $update_size=size::find($id);
+        $update_size->size=$request->size;
+        
+        $update_size->save();
+        if($update_size->save())
+        {
+            Alert::Success('Size has been updated...');
+            return redirect('/manage_sizes');
+        }
+        else{
+            Alert::error('Error in updating Size...');
+            return redirect()->back();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete_size(string $id)
     {
-        //
+        $delete_size=size::find($id);
+        if($delete_size){
+            $delete_size->delete();
+            Alert::Success('Size has been deleted...');
+            return redirect('/manage_sizes');
+        }
+        else{
+            Alert::error('Error in deleting Size...');
+            return redirect()->back();
+        }
     }
 }

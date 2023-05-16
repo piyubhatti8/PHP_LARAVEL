@@ -32,20 +32,19 @@ label {
                <div class="midde_cont">
                   <div class="container-fluid">
                      <div class="row column_title pt-5">
-                     <center><h1>Manage Types</h1></center>
+                     <center><h1>Manage Sizes</h1></center>
                         <div class="col-md-12 pt-5">
                            <div class="page_title">
                            <div  class="container-p-2">
                           
-               @if($manage_types)
+               @if($manage_sizes)
                         <div class="row">
                            <table id="example" class="table  table-bordered table-hover" style="width:100%">
                               <thead>
                                     <tr>
                               
                                        <th>ID</th>
-                                       <th>Type</th>
-                                       <th>Category</th>
+                                       <th>Size</th>
                                        <th>Created Date</th>
                                        <th>Updated Date</th>
                                        <th>Edit</th>
@@ -54,17 +53,15 @@ label {
                                     </tr>
                               </thead>
                               <tbody>
-                                 @foreach($manage_types as $types)
+                                 @foreach($manage_sizes as $size)
                                
                                     <tr>
-                                       <td>{{$types->id}}</td>
-                                       <td>{{$types->type}}</td>
-
-                                       <td>{{$types->category}}</td>
-                                       <td>{{$types->created_at}}</td>
-                                       <td>{{$types->updated_at}}</td>
-                                       <td><a href="{{url('/edit_type/'.$types->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/clipart1212466.png')}}"></a></td>
-                                       <td><a href="{{url('/delete_type/'.$types->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/delete-512.png')}}"></a></td>
+                                       <td>{{$size->id}}</td>
+                                       <td>{{$size->size}}</td>
+                                       <td>{{$size->created_at}}</td>
+                                       <td>{{$size->updated_at}}</td>
+                                       <td><a href="{{url('/edit_size/'.$size->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/clipart1212466.png')}}"></a></td>
+                                       <td><a href="{{url('/delete_size/'.$size->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/delete-512.png')}}"></a></td>
                                     </tr>
                              
                                  @endforeach
@@ -72,8 +69,7 @@ label {
                               <tfoot>
                                     <tr>
                                     <th>ID</th>
-                                       <th>Type</th>
-                                       <th>Category</th>
+                                       <th>Size</th>
                                        <th>Created Date</th>
                                        <th>Updated Date</th>
                                        <th>Edit</th>

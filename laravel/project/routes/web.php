@@ -73,7 +73,7 @@ Route::get('/dashboard', function () {
     return view('backend.dashboard');
 });
 
-
+//------------------------------------Register Login and Logout Routes--------------------------
 Route::get('/register_admin', [adminController::class,'register_admin']);
 Route::post('/register_admin', [adminController::class,'register']);
 
@@ -81,29 +81,64 @@ Route::get('/admin_index', [adminController::class,'admin_index']);
 Route::post('/admin_index', [adminController::class,'chk_login']);
 
 Route::get('/logout', [adminController::class,'logout']);
-
+//-----------------------------------------Manage Add Update Delete Brands------------------------------------------
 Route::get('/add_brands', [brandController::class,'add_brands']);
 Route::post('/add_brands', [brandController::class,'store']);
 
+Route::get('/manage_brands', [brandController::class,'manage_brands']);
+Route::get('/edit_brand/{id}', [brandController::class,'edit_brand']);
+
+Route::post('/update_brand/{id}', [brandController::class,'update_brand']);
+
+Route::get('/delete_brand/{id}', [brandController::class,'delete_brand']);
+//-----------------------------------------Manage Add Update Delete Colors------------------------------------------
 Route::get('/add_colors', [colorController::class,'add_colors']);
 Route::post('/add_colors', [colorController::class,'store']);
 
-Route::get('/add_sizes', [productController::class,'add_sizes']);
-Route::post('/add_sizes', [productController::class,'store']);
 
-Route::get('/add_types', [typeController::class,'add_types']);
-Route::post('/add_types', [typeController::class,'store']);
+Route::get('/manage_colors', [colorController::class,'manage_colors']);
+Route::get('/edit_color/{id}', [colorController::class,'edit_color']);
 
-Route::get('/add_types', [typeController::class,'add_types']);
-Route::post('/add_types', [typeController::class,'store']);
+Route::post('/update_color/{id}', [colorController::class,'update_color']);
 
+Route::get('/delete_color/{id}', [colorController::class,'delete_color']);
+//-----------------------------------------Manage Add Update Delete Sizes------------------------------------------
 Route::get('/add_sizes', [sizeController::class,'add_sizes']);
 Route::post('/add_sizes', [sizeController::class,'store']);
+
+
+Route::get('/manage_sizes', [sizeController::class,'manage_sizes']);
+Route::get('/edit_size/{id}', [sizeController::class,'edit_size']);
+
+Route::post('/update_size/{id}', [sizeController::class,'update_size']);
+
+Route::get('/delete_size/{id}', [sizeController::class,'delete_size']);
+
+//-----------------------------------------Manage Add Update Delete Types------------------------------------------
+Route::get('/add_types', [typeController::class,'add_types']);
+Route::post('/add_types', [typeController::class,'store']);
+
+Route::get('/manage_types', [typeController::class,'manage_types']);
+
+Route::get('/edit_type/{id}', [typeController::class,'edit_type']);
+Route::post('/update_type/{id}', [typeController::class,'update_type']);
+
+Route::get('/delete_type/{id}', [typeController::class,'delete_type']);
+
+//-----------------------------------------Manage Add Update Delete Products------------------------------------------
 
 Route::get('/add_products', [productController::class,'add_products']);
 Route::post('/add_products', [productController::class,'store']);
 
-Route::get('/manage_types', [typeController::class,'manage_types']);
+Route::get('/manage_products', [productController::class,'manage_products']);
+Route::get('/edit_product/{id}', [productController::class,'edit_product']);
+Route::post('/update_product/{id}', [productController::class,'update_product']);
+
+//-----------------------------------------Manage Users------------------------------------------
+
+Route::get('/manage_users', [userController::class,'manage_users']);
+Route::get('/status/{id}', [userController::class,'status']);
+
 
 Route::get('/table', function () {
     return view('backend.table');

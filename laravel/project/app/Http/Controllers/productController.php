@@ -67,27 +67,73 @@ class productController extends Controller
 
     }
    
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function manage_products()
     {
-        //
+        
+        $manage_products=product::join('types','products.type_id','=','types.id')
+        ->join('colors','products.clr_id','=','colors.id')
+        ->join('sizes','products.size_id','=','sizes.id')
+        ->join('brands','products.brand_id','=','brands.id')
+        ->get(['products.*','types.type','colors.color','sizes.size','brands.brand']);  
+        return view('backend.manage_products',["manage_products"=>$manage_products]);
+    }
+    public function edit_product(string $id)
+    {
+        $size_data=size::all();
+        $brand_data=brand::all();
+        $color_data=color::all();
+        $type_data=categorie::join('types','types.cate_id','=','categories.id')->orderBy('categories.category','asc')->get();
+
+        $edit_product=product::where('products.id','=',$id)
+        ->first();  
+        return view('backend.edit_product',["edit_product"=>$edit_product,"size_data"=>$size_data,"brand_data"=>$brand_data,"color_data"=>$color_data,"type_data"=>$type_data]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update_product(Request $request, string $id)
     {
-        //
+        $data=product::find($id);
+        $data->p_name=$request->p_name;
+        $data->type_id=$request->type_id;       
+        $data->brand_id=$request->brand_id;
+        $data->clr_id=$request->clr_id;
+        $data->size_id=$request->size_id;
+        $data->price=$request->price;
+        $data->qty=$request->qty;
+        $data->discount=$request->discount;
+        $data->disc_amt=$request->disc_amt;
+        $data->des=$request->des;
+ 
+        
+        if($request->hasFile('img')){
+            $old_img=$data->img;
+            $img=$request->file('img');
+
+            $path="backend/assets/upload/products/";
+            //img upload
+              $img=$request->file('img');		
+              $filename=time().'_img.'.$request->file('img')->getClientOriginalExtension();
+              $img->move($path,$filename);  // use move for move image in public/images
+      
+              $data->img=$filename; // name store in db
+
+              unlink($path.$old_img);
+        }
+             $data->save();
+ 
+        Alert::success('Product has been updated successfully...');
+        return redirect('/manage_products');
+ 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete_product(string $id)
     {
-        //
+        $data=product::find($id);
+        $data->delete();
     }
 }

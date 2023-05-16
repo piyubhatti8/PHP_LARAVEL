@@ -76,24 +76,44 @@ class typeController extends Controller
    
         return view('frontend.view_type_wise_men',['men_typewise_product'=>$men_typewise_product]);
     }
-    public function edit(string $id)
+    public function edit_type(string $id)
     {
-        //
+        $category=categorie::all();
+        $edit_data=type::where('id','=',$id)->first();
+        return view('backend.edit_type',['category'=>$category,"edit_data"=>$edit_data]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update_type(Request $request, string $id)
     {
-        //
+        $update_type=type::find($id);
+        $update_type->type=$request->type;
+        $update_type->cate_id=$request->cate_id;
+
+        $update_type->save();
+        if( $update_type->save())
+        {
+            Alert::Success('Type has been updated...');
+            return redirect('/manage_types');
+        }
+        else{
+            Alert::error('Error in updating type...');
+            return redirect()->back();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete_type(string $id)
     {
-        //
+        $delete_type=type::find($id);
+        if($delete_type){
+            $delete_type->delete();
+            Alert::Success('Type has been deleted...');
+            return redirect('/manage_types');
+        }
+        else{
+            Alert::error('Error in deleting type...');
+            return redirect()->back();
+        }
     }
 }

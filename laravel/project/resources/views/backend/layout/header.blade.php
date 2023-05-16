@@ -20,21 +20,21 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- site icon -->
-      <link rel="icon" href="backend/assets/images/fevicon.png" type="image/png" />
+      <link rel="icon" href="{{url('backend/assets/images/fevicon.png')}}" type="image/png" />
       <!-- bootstrap css -->
-      <link rel="stylesheet" href="backend/assets/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/bootstrap.min.css')}}" />
       <!-- site css -->
-      <link rel="stylesheet" href="backend/assets/style.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/style.css')}}" />
       <!-- responsive css -->
-      <link rel="stylesheet" href="backend/assets/css/responsive.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/responsive.css')}}" />
       <!-- color css -->
-      <link rel="stylesheet" href="backend/assets/css/colors.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/colors.css')}}" />
       <!-- select bootstrap -->
-      <link rel="stylesheet" href="backend/assets/css/bootstrap-select.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/bootstrap-select.css')}}" />
       <!-- scrollbar css -->
-      <link rel="stylesheet" href="backend/assets/css/perfect-scrollbar.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/perfect-scrollbar.css')}}" />
       <!-- custom css -->
-      <link rel="stylesheet" href="backend/assets/css/custom.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/custom.css')}}" />
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -53,13 +53,13 @@
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
                      <div class="logo_section">
-                        <a href="index"><img class="logo_icon img-responsive" src="backend/assets/images/logo/logo_icon.png" alt="#" /></a>
+                        <a href="{{url('index')}}"><img class="logo_icon img-responsive" src="backend/assets/images/logo/logo_icon.png" alt="#" /></a>
                      </div>
                   </div>
                   <div class="sidebar_user_info">
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
-                        <div class="user_img"><img class="img-responsive" src="backend/assets/images/layout_img/user_img.jpg" alt="#" /></div>
+                        <div class="user_img"><img class="img-responsive" src="{{url('backend/assets/images/layout_img/user_img.jpg')}}" alt="#" /></div>
                         <div class="user_info">
                            <h6>{{session('aname')}}</h6>
                            <p><span class="online_animation"></span> Online</p>
@@ -71,7 +71,7 @@
                   <h4>Tables & Dashboard</h4>
                   <ul class="list-unstyled components">
                      <li class="active">
-                        <a href="dashboard"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                        <a href="{{url('dashboard')}}"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
                      </li>
 
                   
@@ -82,7 +82,7 @@
                               <a href="{{url('/add_products')}}">> <span>Add Products</span></a>
                            </li>
                            <li>
-                              <a href="products">> <span>Manage Products</span></a>
+                              <a href="{{url('manage_products')}}">> <span>Manage Products</span></a>
                            </li>
                            
                         </ul>
@@ -94,7 +94,7 @@
                               <a href="{{url('/add_types')}}">> <span>Add Types</span></a>
                            </li>
                            <li>
-                              <a href="types">> <span>Manage Types</span></a>
+                              <a href="{{url('/manage_types')}}">> <span>Manage Types</span></a>
                            </li>
                            
                         </ul>
@@ -106,7 +106,7 @@
                               <a href="{{url('/add_brands')}}">> <span>Add Brands</span></a>
                            </li>
                            <li>
-                              <a href="brands">> <span>Manage Brands</span></a>
+                              <a href="{{url('manage_brands')}}">> <span>Manage Brands</span></a>
                            </li>  
                         </ul>
                      </li>
@@ -117,7 +117,7 @@
                               <a href="{{url('/add_sizes')}}">> <span>Add Sizes</span></a>
                            </li>
                            <li>
-                              <a href="sizes">> <span>Manage Sizes</span></a>
+                              <a href="{{url('manage_sizes')}}">> <span>Manage Sizes</span></a>
                            </li>  
                         </ul>
                      </li>
@@ -128,7 +128,7 @@
                               <a href="{{url('/add_colors')}}">> <span>Add Colors</span></a>
                            </li>
                            <li>
-                              <a href="colors">> <span>Manage Colors</span></a>
+                              <a href="{{url('/manage_colors')}}">> <span>Manage Colors</span></a>
                            </li>  
                         </ul>
                      </li>
@@ -136,7 +136,7 @@
                         <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Users</span></a>
                         <ul class="collapse list-unstyled" id="users">
                            <li>
-                              <a href="users">> <span>Manage Users</span></a>
+                              <a href="{{url('manage_users')}}">> <span>Manage Users</span></a>
                            </li>
                         </ul>
                      </li>
@@ -144,7 +144,7 @@
                         <a href="#feedbacks" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>feedbacks</span></a>
                         <ul class="collapse list-unstyled" id="feedbacks">
                            <li>
-                              <a href="feedbacks">> <span>Manage Feedbacks</span></a>
+                              <a href="{{url('manage_feedbacks')}}">> <span>Manage Feedbacks</span></a>
                            </li>
                         </ul>
                      </li>
@@ -152,7 +152,7 @@
                         <a href="#orders" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Orders</span></a>
                         <ul class="collapse list-unstyled" id="orders">
                            <li>
-                              <a href="orders">> <span>Manage Orders</span></a>
+                              <a href="{{url('manage_orders')}}">> <span>view Orders</span></a>
                            </li>
                         </ul>
                      </li>
@@ -168,7 +168,7 @@
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                         <div class="logo_section">
-                           <a href="index" class="top" style="color: white; font-weight: bold; font-size:25px;"><img class="img-responsive" src="backend/assets/images/logo/logo.png" alt="#" />ADMIN PANEL</a>
+                           <a href="{{url('index')}}" class="top" style="color: white; font-weight: bold; font-size:25px;"><img class="img-responsive" src="backend/assets/images/logo/logo.png" alt="#" />ADMIN PANEL</a>
                         </div>
                         <div class="right_topbar">
                            <div class="icon_info">

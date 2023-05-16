@@ -43,6 +43,7 @@ if($request->hasFile('file')){
     $old_img=$data->file;
 
     $file=$request->file('file');
+    
     $path="frontend/assets/upload/user/";
     $filename=time().'_img.'.$request->file('file')->getClientOriginalExtension();
     $file->move($path,$filename);
@@ -139,7 +140,30 @@ if($request->hasFile('file')){
             return redirect('/user_login');
         
     }
+    public function manage_users()
+    {
+      //  $users=user::all();
+        $users=countrie::join('users','countries.id','=','users.cid')->get();
+        return view('backend.manage_users',["users"=>$users]);
+    }
+    public function status(Request $request, string $id)
+    {
+        $status=user::find($id);
+        if($status->status=="Unblocked"){
+            $status->status="Blocked";
+            $status->save();
+            Alert::success('Status has been updated');
+           return redirect('/manage_users');
 
+        }
+        elseif($status->status=="Blocked"){
+            $status->status="Unblocked";
+            $status->save();
+            Alert::success('Status has been updated');
+            return redirect('/manage_users');
+        }
+        
+    }
     /**
      * Show the form for editing the specified resource.
      */
