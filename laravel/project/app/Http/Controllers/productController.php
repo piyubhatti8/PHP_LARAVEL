@@ -135,5 +135,7 @@ class productController extends Controller
     {
         $data=product::find($id);
         $data->delete();
+		 Alert::success('Product has been deleted successfully...');
+        return redirect('/manage_products');
     }
 }

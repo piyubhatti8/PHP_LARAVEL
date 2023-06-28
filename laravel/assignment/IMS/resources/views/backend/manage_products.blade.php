@@ -1,4 +1,4 @@
-﻿@extends('backend.layout.main')
+@extends('backend.layout.main')
 
 @section('main_container') 
 
@@ -32,39 +32,49 @@ label {
                <div class="midde_cont">
                   <div class="container-fluid">
                      <div class="row column_title pt-5">
-                     <center><h1>Manage Users</h1></center>
+                     <center><h1>Manage Products</h1></center>
                         <div class="col-md-12 pt-5">
                            <div class="page_title">
                            <div  class="container-p-2">
                           
-               @if($users)
+               @if($manage_products)
                         <div class="row">
                            <table id="example" class="table  table-bordered table-hover" style="width:100%">
                               <thead>
                                     <tr>
                                         
                                        <th>ID</th>
-                                       <th>Name</th>
-                                       <th>Username</th>
-                                       <th>Gender</th>
-                                       <th>Languages</th>
-                                       <th>Mobile</th>
-                                       <th>Country</th>
-                                       <th>Status</th>                                       
+                                       <th>Product Name</th>
+                                       <th>Type</th>
+                                       <th>Brand</th>
+                                       <th>Size</th>
+                                       <th>Color</th>
+                                       <th>Price</th>
+                                       <th>Quantity</th>
+                                       <th>Discount</th>
+                                       <th>File</th>
+                                       <th>Description</th>
+                                       <th>Edit</th>
+                                       <th>Delete</th>
                                     </tr>
                               </thead>
                               <tbody>
-                                 @foreach($users as $u)
+                                 @foreach($manage_products as $product)
                                
                                     <tr>
-                                       <td>{{$u->id}}</td>
-                                       <td>{{$u->name}}</td>
-                                       <td>{{$u->unm}}</td>
-                                       <td>{{$u->gen}}</td>
-                                       <td>{{$u->lang}}</td>
-                                       <td>{{$u->mob}}</td>
-                                       <td>{{$u->country}}</td>                             
-                                       <td><a href="{{url('/status/'.$u->id)}}" class="btn btn-primary">{{$u->status}}</a></td>
+                                       <td>{{$product->id}}</td>
+                                       <td>{{$product->p_name}}</td>
+                                       <td>{{$product->type}}</td>
+                                       <td>{{$product->brand}}</td>
+                                       <td>{{$product->size}}</td>
+                                       <td>{{$product->color}}</td>
+                                       <td>{{$product->price}}</td>
+                                       <td>{{$product->qty}}</td>
+                                       <td>{{$product->discount}}</td>
+                                       <td>{{$product->img}}</td>
+                                       <td>{{$product->des}}</td>                                                                  
+                                       <td><a href="{{url('/edit_product/'.$product->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/clipart1212466.png')}}"></a></td>
+                                       <td><a href="{{url('/delete_product/'.$product->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/delete-512.png')}}"></a></td>
                                     </tr>
                              
                                  @endforeach
@@ -72,13 +82,17 @@ label {
                               <tfoot>
                                     <tr>
                                     <th>ID</th>
-                                       <th>Name</th>
-                                       <th>Username</th>
-                                       <th>Gender</th>
-                                       <th>Languages</th>
-                                       <th>Mobile</th>
-                                       <th>Country</th>
-                                       <th>Status</th> 
+                                    <th>ID</th>
+                                       <th>Product Name</th>
+                                       <th>Type</th>
+                                       <th>Brand</th>
+                                       <th>Size</th>
+                                       <th>Color</th>
+                                       <th>Price</th>
+                                       <th>Quantity</th>
+                                       <th>Discount</th>
+                                       <th>File</th>
+                                       <th>Description</th> 
                                     </tr>
                               </tfoot>
                            </table>

@@ -1,4 +1,4 @@
-﻿@extends('backend.layout.main')
+@extends('backend.layout.main')
 
 @section('main_container') 
 
@@ -32,39 +32,39 @@ label {
                <div class="midde_cont">
                   <div class="container-fluid">
                      <div class="row column_title pt-5">
-                     <center><h1>Manage Users</h1></center>
+                     <center><h1>Manage Types</h1></center>
                         <div class="col-md-12 pt-5">
                            <div class="page_title">
                            <div  class="container-p-2">
                           
-               @if($users)
+               @if($manage_types)
                         <div class="row">
                            <table id="example" class="table  table-bordered table-hover" style="width:100%">
                               <thead>
                                     <tr>
-                                        
+                              
                                        <th>ID</th>
-                                       <th>Name</th>
-                                       <th>Username</th>
-                                       <th>Gender</th>
-                                       <th>Languages</th>
-                                       <th>Mobile</th>
-                                       <th>Country</th>
-                                       <th>Status</th>                                       
+                                       <th>Type</th>
+                                       <th>Category</th>
+                                       <th>Created Date</th>
+                                       <th>Updated Date</th>
+                                       <th>Edit</th>
+                                       <th>Delete</th>
+                                       
                                     </tr>
                               </thead>
                               <tbody>
-                                 @foreach($users as $u)
+                                 @foreach($manage_types as $types)
                                
                                     <tr>
-                                       <td>{{$u->id}}</td>
-                                       <td>{{$u->name}}</td>
-                                       <td>{{$u->unm}}</td>
-                                       <td>{{$u->gen}}</td>
-                                       <td>{{$u->lang}}</td>
-                                       <td>{{$u->mob}}</td>
-                                       <td>{{$u->country}}</td>                             
-                                       <td><a href="{{url('/status/'.$u->id)}}" class="btn btn-primary">{{$u->status}}</a></td>
+                                       <td>{{$types->id}}</td>
+                                       <td>{{$types->type}}</td>
+
+                                       <td>{{$types->category}}</td>
+                                       <td>{{$types->created_at}}</td>
+                                       <td>{{$types->updated_at}}</td>
+                                       <td><a href="{{url('/edit_type/'.$types->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/clipart1212466.png')}}"></a></td>
+                                       <td><a href="{{url('/delete_type/'.$types->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/delete-512.png')}}"></a></td>
                                     </tr>
                              
                                  @endforeach
@@ -72,13 +72,12 @@ label {
                               <tfoot>
                                     <tr>
                                     <th>ID</th>
-                                       <th>Name</th>
-                                       <th>Username</th>
-                                       <th>Gender</th>
-                                       <th>Languages</th>
-                                       <th>Mobile</th>
-                                       <th>Country</th>
-                                       <th>Status</th> 
+                                       <th>Type</th>
+                                       <th>Category</th>
+                                       <th>Created Date</th>
+                                       <th>Updated Date</th>
+                                       <th>Edit</th>
+                                       <th>Delete</th>
                                     </tr>
                               </tfoot>
                            </table>

@@ -1,8 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-/*
+use App\Http\Controllers\teacherController;
+ use Illuminate\Support\Facades\Route;
+ use App\Http\Controllers\adminController;
+ use App\Http\Controllers\bookController;
+ use App\Http\Controllers\countrieController;
+ use App\Http\Controllers\authorController;
+ use App\Http\Controllers\publisherController;
+ /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -13,6 +18,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/dashboard', function () {
+    return view('backend.dashboard');
 });
+
+Route::get('/admin_login',[adminController::class,'admin_login']);
+Route::post('admin_login',[adminController::class,'chk_admin']);
+
+Route::get('/admin_logout',[adminController::class,'admin_logout']);
+Route::get('/forgot_pass',[adminController::class,'forgot_pass']);
+Route::post('/otp_forgot_pass',[adminController::class,'otp_forgot_pass']);
+Route::get('/change_pass',[adminController::class,'change_pass']);
+
+Route::post('/change_pass/{id,rnum}',[adminController::class,'pwd_change']);
+
+Route::post('/update_pass/{id}',[adminController::class,'update_pass']);
+
+Route::get('/add_teachers',[teacherController::class,'add_teachers']);
+Route::post('/add_teachers',[teacherController::class,'store']);
+
+Route::get('/manage_teachers',[teacherController::class,'show']);
+Route::get('/edit_teacher/{id}',[teacherController::class,'edit_teacher']);
+
+Route::post('/update_teacher/{id}',[teacherController::class,'update']);
+
+Route::get('/delete_teacher/{id}',[teacherController::class,'destroy']);
+
+Route::get('/add_authors',[authorController::class,'add_authors']);
+Route::post('/add_authors',[authorController::class,'store']);
+
+Route::get('/manage_authors',[authorController::class,'manage_authors']);
+Route::get('/edit_author/{id}',[authorController::class,'edit']);
+

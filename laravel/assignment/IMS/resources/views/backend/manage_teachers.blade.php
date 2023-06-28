@@ -1,4 +1,4 @@
-﻿@extends('backend.layout.main')
+@extends('backend.layout.main')
 
 @section('main_container') 
 
@@ -32,53 +32,57 @@ label {
                <div class="midde_cont">
                   <div class="container-fluid">
                      <div class="row column_title pt-5">
-                     <center><h1>Manage Users</h1></center>
+                     <center><h1>Manage Teachers</h1></center>
                         <div class="col-md-12 pt-5">
                            <div class="page_title">
                            <div  class="container-p-2">
                           
-               @if($users)
+               @if($data)
                         <div class="row">
                            <table id="example" class="table  table-bordered table-hover" style="width:100%">
                               <thead>
                                     <tr>
-                                        
+                                       <th>Image</th>
                                        <th>ID</th>
                                        <th>Name</th>
                                        <th>Username</th>
                                        <th>Gender</th>
                                        <th>Languages</th>
                                        <th>Mobile</th>
-                                       <th>Country</th>
-                                       <th>Status</th>                                       
+                                       <th>Address</th>
+                                       <th>Edit/Delete</th>                    
                                     </tr>
                               </thead>
                               <tbody>
-                                 @foreach($users as $u)
+                                 @foreach($data as $d)
                                
                                     <tr>
-                                       <td>{{$u->id}}</td>
-                                       <td>{{$u->name}}</td>
-                                       <td>{{$u->unm}}</td>
-                                       <td>{{$u->gen}}</td>
-                                       <td>{{$u->lang}}</td>
-                                       <td>{{$u->mob}}</td>
-                                       <td>{{$u->country}}</td>                             
-                                       <td><a href="{{url('/status/'.$u->id)}}" class="btn btn-primary">{{$u->status}}</a></td>
+                                       <td><img src="{{url('backend/assets/upload/'.$d->img)}}" width="50px"></td>
+                                       <td>{{$d->id}}</td>
+                                       <td>{{$d->name}}</td>
+                                       <td>{{$d->unm}}</td>
+                                       <td>{{$d->gen}}</td>
+                                       <td>{{$d->lang}}</td>
+                                       <td>{{$d->mob}}</td>   
+                                       <td>{{$d->add}}</td>                                      
+                                       <td><a href="{{url('/edit_teacher/'.$d->id)}}" class="btn btn-primary">Edit</a>
+                                       <a href="{{url('/delete_teacher/'.$d->id)}}" class="btn btn-danger">Delete</a></td>
                                     </tr>
                              
                                  @endforeach
                               </tbody>
                               <tfoot>
                                     <tr>
-                                    <th>ID</th>
+                                       <th>Image</th>
+                                       <th>ID</th>
                                        <th>Name</th>
                                        <th>Username</th>
                                        <th>Gender</th>
                                        <th>Languages</th>
                                        <th>Mobile</th>
-                                       <th>Country</th>
-                                       <th>Status</th> 
+                                       <th>Address</th>
+                                       <th>Edit/Delete</th>                    
+                                    
                                     </tr>
                               </tfoot>
                            </table>
@@ -100,7 +104,7 @@ label {
 </div>
 </div>
 	   
-      <script>
+<script>
 $(document).ready(function() {
     $('#example').DataTable( 
          {     
