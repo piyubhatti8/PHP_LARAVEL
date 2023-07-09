@@ -26,18 +26,19 @@
                                     @csrf
                                     <div class="form-group">
                                        <label class="form-control-label" style="font-weight:bold;">Name:</label>
-                                       <input type="text" name="name" class="form-control" >
-                                    
-                                       <div class="alert alert-danger">
+                                       <input type="text" name="name" class="form-control">                                  
+                                      
                                           @error('name')
-                                             {{$message}}
-                                          @enderror
-                                          </div>
+                                          <div class="alert alert-danger"> {{ $message }} </div>
+                                          @enderror                                
                                           
                                     </div>
                                     <div class="form-group">
                                        <label class="form-control-label" style="font-weight:bold;">Email:</label>
                                        <input type="email" name="unm" class="form-control" >
+                                       @error('unm')
+                                          <div class="alert alert-danger"> {{$message}} </div>
+                                          @enderror 
                                     </div>
                                     <div class="form-group">
                                        <label class="form-control-label" style="font-weight:bold;">Gender:</label>

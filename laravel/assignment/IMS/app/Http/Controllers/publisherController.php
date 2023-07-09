@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\publisher;
 use Illuminate\Http\Request;
 
 class publisherController extends Controller
@@ -9,9 +10,9 @@ class publisherController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function add_publishers()
     {
-        //
+        return view('backend.add_publishers');
     }
 
     /**
@@ -19,7 +20,7 @@ class publisherController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -27,15 +28,20 @@ class publisherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=new publisher;
+        $data->pub_name=$request->pub_name;
+        $data->save();
+        return redirect('/add_publishers');
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function manage_publishers()
     {
-        //
+        $data=publisher::all();
+        return view('backend.manage_publishers',["data"=>$data]);
     }
 
     /**
@@ -43,7 +49,8 @@ class publisherController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data=publisher::find($id);
+        return view('backend.edit_publisher',["data"=>$data]);
     }
 
     /**
@@ -51,7 +58,11 @@ class publisherController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data=publisher::find($id);
+        $data->pub_name=$request->pub_name;
+        $data->save();
+        alert::success('Publisher has been updated..');
+        return redirect('/manage_publishers');
     }
 
     /**
@@ -59,6 +70,9 @@ class publisherController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data=publisher::find($id);
+        $data->delete();
+        alert::success('Publisher has been removed...');
+        return redirect('/manage_publishers');
     }
 }

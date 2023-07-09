@@ -10,10 +10,7 @@ class authorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -60,7 +57,12 @@ class authorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data=author::find($id);
+     // $update=author::where("id","=",$id);\
+        $data->auth_name=$request->auth_name;
+        $data->save();
+        alert::success('Author updated successfully...');
+        return redirect('/manage_authors');
     }
 
     /**
@@ -68,6 +70,9 @@ class authorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data=author::find($id);
+        $data->delete();
+        alert::success('Author deleted successfully...');
+        return redirect('/manage_authors');
     }
 }

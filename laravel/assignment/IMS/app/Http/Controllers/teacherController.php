@@ -33,15 +33,18 @@ class teacherController extends Controller
      */
     public function store(Request $request)
     {
-       $validated= $request->validate([
-            'name'=>'required',
-            'unm'=>'required|email',
-           // 'unm'=>'required',
-            'gen'=>'required',
-        ]);
-        echo "<pre>";
+
+        $validated = $request->validate([
+            'name' => 'required|alpha',
+            'unm' => 'required|unique:customers|max:255',
+            //'pass' => 'required',
+            //'cid' => 'required',
+            //'file' => 'required|mimes:jpg,jpeg,png,gif'
+            ]);
+     
+        //echo "<pre>";
 		
-        print_r($request->all());
+        //print_r($request->all());
         
         $data=new teacher;
         $data->name=$request->name;

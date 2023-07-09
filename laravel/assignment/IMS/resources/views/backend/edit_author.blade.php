@@ -23,7 +23,7 @@
                                     <div class="col-md-12">
                                        <div class="content p-5">
                             @if($data)
-                              <form action="{{url('')}}" method="post" enctype="multipart/form-data">
+                              <form action="{{url('/update_author/'.$data->id)}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                        <label class="form-control-label" style="font-weight:bold;">Author Name:</label>

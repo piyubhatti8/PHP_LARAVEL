@@ -32,52 +32,58 @@ label {
                <div class="midde_cont">
                   <div class="container-fluid">
                      <div class="row column_title pt-5">
-                     <center><h1>Manage Types</h1></center>
+                     <center><h1>Manage Books</h1></center>
                         <div class="col-md-12 pt-5">
                            <div class="page_title">
                            <div  class="container-p-2">
                           
-               @if($manage_types)
+               @if($manage_books)
                         <div class="row">
                            <table id="example" class="table  table-bordered table-hover" style="width:100%">
                               <thead>
                                     <tr>
-                              
+                                       <th>Image</th>
                                        <th>ID</th>
-                                       <th>Type</th>
-                                       <th>Category</th>
-                                       <th>Created Date</th>
-                                       <th>Updated Date</th>
-                                       <th>Edit</th>
-                                       <th>Delete</th>
-                                       
+                                       <th>Book Name</th>
+                                       <th>ISBN No.</th>
+                                       <th>Author</th>
+                                       <th>Publisher</th>
+                                       <th>Pages</th>
+                                       <th>Edition</th>
+                                       <th>Published Date</th>
+                                       <th>Edit/Delete</th>                    
                                     </tr>
                               </thead>
                               <tbody>
-                                 @foreach($manage_types as $types)
-                               
+                                 @foreach($manage_books as $d)
                                     <tr>
-                                       <td>{{$types->id}}</td>
-                                       <td>{{$types->type}}</td>
-
-                                       <td>{{$types->category}}</td>
-                                       <td>{{$types->created_at}}</td>
-                                       <td>{{$types->updated_at}}</td>
-                                       <td><a href="{{url('/edit_type/'.$types->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/clipart1212466.png')}}"></a></td>
-                                       <td><a href="{{url('/delete_type/'.$types->id)}}"><img style="width:20px; height:20px;" src="{{url('backend/assets/images/delete-512.png')}}"></a></td>
+                                       <td><img src="{{url('backend/assets/upload/books/'.$d->img)}}" height="50px" width="50px"></td>
+                                       <td>{{$d->id}}</td>
+                                       <td>{{$d->name}}</td>
+                                       <td>{{$d->isbn}}</td>
+                                       <td>{{$d->auth_name}}</td>
+                                       <td>{{$d->pub_name}}</td>
+                                       <td>{{$d->pages}}</td>
+                                       <td>{{$d->edition}}</td>
+                                       <td>{{$d->pub_dt}}</td>
+                                       <td><a href="{{url('/edit_book/'.$d->id)}}" class="btn btn-primary">Edit</a>
+                                       <a href="{{url('/delete_book/'.$d->id)}}" class="btn btn-danger">Delete</a></td>
                                     </tr>
                              
                                  @endforeach
                               </tbody>
                               <tfoot>
-                                    <tr>
-                                    <th>ID</th>
-                                       <th>Type</th>
-                                       <th>Category</th>
-                                       <th>Created Date</th>
-                                       <th>Updated Date</th>
-                                       <th>Edit</th>
-                                       <th>Delete</th>
+                              <tr>
+                                       <th>Image</th>
+                                       <th>ID</th>
+                                       <th>Book Name</th>
+                                       <th>ISBN No.</th>
+                                       <th>Author</th>
+                                       <th>Publisher</th>
+                                       <th>Pages</th>
+                                       <th>Edition</th>
+                                       <th>Published Date</th>
+                                       <th>Edit/Delete</th>                     
                                     </tr>
                               </tfoot>
                            </table>
@@ -99,7 +105,7 @@ label {
 </div>
 </div>
 	   
-      <script>
+<script>
 $(document).ready(function() {
     $('#example').DataTable( 
          {     

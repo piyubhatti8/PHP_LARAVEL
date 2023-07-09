@@ -49,4 +49,32 @@ Route::post('/add_authors',[authorController::class,'store']);
 
 Route::get('/manage_authors',[authorController::class,'manage_authors']);
 Route::get('/edit_author/{id}',[authorController::class,'edit']);
+Route::post('/update_author/{id}',[authorController::class,'update']);
+
+Route::get('/delete_author/{id}',[authorController::class,'destroy']);
+
+
+Route::get('/add_publishers',[publisherController::class,'add_publishers']);
+Route::post('/add_publishers',[publisherController::class,'store']);
+
+Route::get('/manage_publishers',[publisherController::class,'manage_publishers']);
+
+Route::get('/edit_publisher/{id}',[publisherController::class,'edit']);
+Route::post('/update_publisher/{id}',[publisherController::class,'update']);
+
+Route::get('/delete_publisher/{id}',[publisherController::class,'destroy']);
+
+Route::get('/add_books',[bookController::class,'add_books']);
+Route::post('/add_books',[bookController::class,'store']);
+Route::get('/manage_books',[bookController::class,'manage_books']);
+Route::get('/edit_book/{id}',[bookController::class,'edit_book']);
+Route::post('/update_book/{id}',[bookController::class,'update_book']);
+Route::get('/delete_book/{id}',[bookController::class,'destroy']);
+
+
+
+
+
+
+
 

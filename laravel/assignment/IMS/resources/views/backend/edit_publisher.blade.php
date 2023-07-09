@@ -15,18 +15,19 @@
                            <div class="white_shd full">
                               <div class="full graph_head">
                                  <div class="heading1 margin_0">
-                                    <h2 style="color:black; font-size:25px; font-weight: bold;">Add Publishers</h2>
+                                    <h2 style="color:black; font-size:25px; font-weight: bold;">Edit Publishers</h2>
                                  </div>
                               </div>
                               <div class="full graph_revenue">
                                  <div class="row">
                                     <div class="col-md-12">
                                        <div class="content p-5">
-                              <form action="{{url('add_publishers')}}" method="post" enctype="multipart/form-data">
+                            @if($data)
+                              <form action="{{url('/update_publisher/'.$data->id)}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                        <label class="form-control-label" style="font-weight:bold;">Publisher Name:</label>
-                                       <input type="text" name="pub_name" class="form-control" required>
+                                       <input type="text" name="pub_name" class="form-control" value="{{$data->pub_name}}" required>
                                     </div>
                                     <div class="col-6">                              
                                        <div class="form-group">
@@ -34,6 +35,7 @@
                                        </div>								 
                                     </div>
 							     </form>
+                                 @endif
                                        </div>
                                     </div>
                                  </div>
